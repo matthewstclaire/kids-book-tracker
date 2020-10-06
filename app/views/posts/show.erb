@@ -1,0 +1,17 @@
+<h1>You Read:</h1><br>
+    <h2><%= @post.title%></h2>
+    <h2><%= @post.author%></h2>
+    <h2><%= @post.genre%></h2>
+        <p><%= @post.description%></p>
+        <p><%= @post.review%></p>
+
+
+        
+        <h4>Delete this post</h4>
+        <form method="POST" action="/posts/<%= @post.id %>">
+            <input type="hidden" id="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete">
+        </form>
+
+<a href="/posts/<%=@post.id%>/edit">Edit this post</a><br>
+<a href="/posts">Back to your list</a>

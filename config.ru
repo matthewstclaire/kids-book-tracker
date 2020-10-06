@@ -7,4 +7,5 @@ end
 
 use PostsController
 use UsersController
+use SessionsController
 run ApplicationController
