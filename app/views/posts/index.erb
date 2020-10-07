@@ -1,9 +1,9 @@
-<h1> The books you have read: </h1>
+<h1><a href="/posts/new">New Entry</a></h1>
 
-<ul>
+<h1>The books you have read: </h1>
+<ol>
 <% @posts.each do |post| %>
     <li><%= post.title %></li>
+    <li><%= post.author %></li><br>
     <% end %>
-
-
-</ul>
+</ol>

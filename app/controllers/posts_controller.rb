@@ -34,14 +34,16 @@ class PostsController < ApplicationController
     end
 
 
-    # patch '/posts/:id' do
-    #     @post = Post.find_by_id(params[:id])
-    #     params.delete("_method")
-    #     if @post.update(params)
-    #         redirect "/posts/#{@post.id}"
-    #     else
-    #         redirect "posts/new"
-    #     end
-    # end
+    patch '/posts/:id' do
+        @post = Post.find_by_id(params[:id])
+        params.delete("_method")
+        if @post.update(params)
+            redirect "/posts/#{@post.id}"
+        else
+            redirect "posts/new"
+        end
+    end
+
+    
 
 end
