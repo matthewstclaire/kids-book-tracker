@@ -26,21 +26,22 @@ class PostsController < ApplicationController
     get '/posts/:id/edit' do
         @users = User.all
         @post = Post.find_by_id(params[:id])
-        if @post.user.id == current_user.id
-            erb :"posts/edit"
-        else
-            redirect "/posts"
-        end
+        # if @post.user.id == current_user.id
+             erb :"posts/edit"
+        # else
+        #     redirect "/posts"
+        # end
     end
 
-    patch '/posts/:id' do
-        @post = Post.find_by_id(params[:id])
-        params.delete("_method")
-        if @post.update(params)
-            redirect "/posts/#{@post.id}"
-        else
-            redirect "posts/new"
-        end
-    end
+
+    # patch '/posts/:id' do
+    #     @post = Post.find_by_id(params[:id])
+    #     params.delete("_method")
+    #     if @post.update(params)
+    #         redirect "/posts/#{@post.id}"
+    #     else
+    #         redirect "posts/new"
+    #     end
+    # end
 
 end
