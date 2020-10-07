@@ -15,7 +15,7 @@ post '/login' do
 end
 
 get '/logout' do
-    session.clear
+    session.destroy
     redirect "/login"
 end
 

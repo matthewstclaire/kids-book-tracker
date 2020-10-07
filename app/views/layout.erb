@@ -19,7 +19,11 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>KidsBookTracker</strong></small>
+        <% if logged_in? %>
+          <h4>Hello <%= current_user.username %></h4>
+          <h4><a href="/logout">Log Out</a></h4>
+        <% end %>
+        <small>&copy; 2020 <strong>BookTracker</strong></small>
       </footer>
     </div>
 
