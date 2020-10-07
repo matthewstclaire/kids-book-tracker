@@ -14,9 +14,21 @@ post '/login' do
     end
 end
 
+get '/signup' do
+    erb :'/users/signup'
+  end
+
+  post '/signup' do
+    @user = User.new(username: params["username"], password: params["password"], goal: params["reading_goal"])
+    @user.save
+    session[:user_id] = @user.id
+    puts params
+    redirect '/posts'
+  end
+
 get '/logout' do
     session.destroy
-    redirect "/login"
+    redirect "/"
 end
 
 end

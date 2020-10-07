@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     get '/posts' do
-        @posts = Post.all
+        @posts = current_user.posts
         erb :'posts/index'
     end
 
@@ -46,9 +46,9 @@ class PostsController < ApplicationController
 
     delete '/posts/:id' do
         @post = Post.find_by_id(params[:id])
-        # if @post.user.id == current_user.id
+        if @post.user.id == current_user.id
             @post.destroy
-        # end
+        end
         redirect "/posts"
     end
 

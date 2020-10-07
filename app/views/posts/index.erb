@@ -3,7 +3,6 @@
 <h1>The books you have read: </h1>
 <ol>
 <% @posts.each do |post| %>
-    <li><%= post.title %></li>
-    <li><%= post.author %></li><br>
+    <li><a href="posts/<%=post.id%>'<%=post.title%>
     <% end %>
 </ol>
