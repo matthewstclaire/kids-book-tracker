@@ -4,12 +4,7 @@
 <h3>Enter the following:</h3>
 <p>
 
-<form method="POST" action="/posts">
-    <select name="user_id">
-        <% @users.each do | user |%>
-            <option value="<%= user.id %>"><%= user.username %></option>
-        <% end %>
-    </select><br />
+
 
 <label>Book Title:</label></br>
 <input type="text" name = "title" id = "title"></br>

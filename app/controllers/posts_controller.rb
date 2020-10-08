@@ -7,7 +7,6 @@ class PostsController < ApplicationController
 
     get '/posts/new' do
         redirect_if_not_logged_in
-        @users = User.all
         erb :"posts/new"
     end
 
@@ -18,7 +17,7 @@ class PostsController < ApplicationController
     end
 
     post '/posts' do
-        post = Post.new(params)
+        post = current_user.posts.build(params)
         if post.save
             redirect "/posts/#{post.id}"
         else
