@@ -1,9 +1,13 @@
+<img src="/images/baselogo.png" alt="Book Tracker Logo" width="100" height="50" class="small-logo">
+
 <h1><a href="/posts/new">New Entry</a></h1>
+
+<h1>Reading Goal: <%=current_user.goal%>
+<h4>You Have Read: <%=current_user.posts.count%><h4>
 
 <h1>The books you have read: </h1>
 <ol>
 <% @posts.each do |post| %>
-
     <li><a href="/posts/<%=post.id%>"> <%=post.title%></a></li>
     <% end %>
 </ol>

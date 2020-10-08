@@ -10,6 +10,7 @@ post '/login' do
         session[:user_id] = user.id
         redirect "/posts"
     else
+        flash[:notice] = "You've entered an invalid name or password. Please try again."
         redirect "/login"
     end
 end

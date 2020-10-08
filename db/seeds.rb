@@ -3,7 +3,7 @@ User.destroy_all
 
 5.times do
     User.create(username: Faker::TvShows::RickAndMorty.character,
-     password: Faker::TvShows::RickAndMorty.location,
+     password: "password",
       goal: rand(1..20))
 end
 
