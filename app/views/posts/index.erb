@@ -2,8 +2,12 @@
 
 <h1><a href="/posts/new">New Entry</a></h1>
 
-<h1>Reading Goal: <%=current_user.goal%>
-<h4>You Have Read: <%=current_user.posts.count%><h4>
+<hr style="height:1px;border-width:0;color:black;background-color:black">
+
+<h1>Your reading goal is <%=current_user.goal%>. You have currently read <%=current_user.posts.count%>. <h1>
+<h4>You need to read <%=(current_user.goal)-(current_user.posts.count)%> more.<h4>
+
+<hr style="height:.5px;border-width:0;color:black;background-color:black">
 
 <h1>The books you have read: </h1>
 <ol>
