@@ -5,13 +5,25 @@
 <hr style="height:1px;border-width:0;color:black;background-color:black">
 
 <h1>Your reading goal is <%=current_user.goal%>. You have currently read <%=current_user.posts.count%>. <h1>
-<h4>You need to read <%=(current_user.goal)-(current_user.posts.count)%> more.<h4>
+<%if current_user.goal>current_user.posts.count%>
+        <h2>Keep reading! You have <%=(current_user.goal)-(current_user.posts.count)%> to go!</h2>
+<%elsif (current_user.goal)==(current_user.posts.count)%>
+        <h4>You met your goal. Congratulations!</h4>
+<%else%>
+    <h4>You have exceeded your reading goal! Congratulations!</h4>
+<%end%>
 
 <hr style="height:.5px;border-width:0;color:black;background-color:black">
 
-<h1>The books you have read: </h1>
-<ol>
+
+
+<%if current_user.posts.count==0%>
+    <h1>You have no books submitted.</h1>
+<%else%>
+    <h1>Your books read:</h1>
+    <ol>
 <% @posts.each do |post| %>
     <li><a href="/posts/<%=post.id%>"> <%=post.title%></a></li>
     <% end %>
+    <%end%>
 </ol>
